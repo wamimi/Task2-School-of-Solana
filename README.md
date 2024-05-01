@@ -20,9 +20,9 @@ The Circle struct represents a circle with a radius (r). Similar to the rectangl
 Running the Tests
 To run the tests for this project, use the following command:
 
-bash
-Copy code
+
 cargo test
+
 This command will compile the project and execute all the defined tests, ensuring that all implemented functionalities work as expected.
 
 Examples
@@ -32,13 +32,16 @@ calculator_example: Shows how to perform arithmetic operations using the Calcula
 rectangle_example: Demonstrates the creation and modification of rectangles.
 circle_example: Demonstrates the creation and modification of circles.
 Usage
+
 To use this project in your Rust application, you can add it as a dependency in your Cargo.toml file:
+
 
 toml
 
 [dependencies]
 shapes_calculator = "0.1.0"
 Then, import the necessary components in your code and start using them:
+
 
 rust
 use shapes_calculator::{Calculator, Rectangle, Circle};

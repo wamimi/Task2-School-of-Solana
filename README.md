@@ -1,70 +1,58 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/i7rhubIE)
+## Rust Shapes Calculator
+This Rust project implements a shapes calculator, including basic mathematical operations and shape calculations. It defines several structs representing different shapes and a calculator to perform arithmetic operations.
 
-![School of Solana](https://github.com/School-of-Solana/.github/blob/main/assets/Season-5-Banner.png?raw=true)
+Features
+Arithmetic operations (addition, subtraction, multiplication, division) with overflow and underflow resilience.
+Calculation of area and circumference for rectangles and circles.
+Constructor methods for creating instances of the Calculator, Rectangle, and Circle structs.
+Setter methods for modifying the dimensions of rectangles and circles.
+Tests for all implemented functionalities to ensure correctness and reliability.
+Implemented Components
+Calculator
+The Calculator struct represents a simple calculator capable of performing arithmetic operations on two operands. It includes methods for addition, subtraction, multiplication, and division, with resilience to overflow and underflow.
 
-## 📚Task 2
-This is your **Task 2** in the **School of Solana Season 5**. Its primary objective is to introduce you to the Rust programming language. We'll explore fundamental Rust principles, including borrowing, objects, traits, mutability, and more. This part of the course is crucial because Rust is a key programming language in the Solana ecosystem. It's worth noting that Rust is sometimes compared to C++ and considered a competitor, making it valuable to learn.
+Rectangle
+The Rectangle struct represents a rectangle with two sides (a and b). It includes methods for calculating the area and circumference of the rectangle. The struct also provides setter methods to modify the dimensions of the rectangle.
 
-The central concept of this task revolves around creating a calculator and implementing multiple shapes with corresponding functions to calculate properties like area and circumference. However, since this task serves as a gateway into the Solana world, it's essential that your calculator also handles potential overflow and underflow issues commonly encountered in arithmetic operations within Solana programs.
+Circle
+The Circle struct represents a circle with a radius (r). Similar to the rectangle, it includes methods for calculating the area and circumference of the circle. It also provides a setter method to modify the radius of the circle.
 
-Regarding the Shapes, the goal is to familiarize yourself with Rust's concepts of structs, traits, and effectively applying object-oriented programming (OOP) principles in this language.
+Running the Tests
+To run the tests for this project, use the following command:
 
-### Task details
-
-In the **main.rs** file, let's go through the code structure:
-
-- **Shape** Trait: You'll encounter a trait named **Shape**. This trait defines several functions related to properties of geometric shapes like **Rectangle** and **Circle**. The function names are mostly self-explanatory. Your job is to implement these functions for the respective **Geometric Objects**.
-
-- **Geometric Objects**: Below the **Shape** trait, you'll find structures representing shapes, such as **Rectangle** and **Circle**. These structures have clear properties (e.g., Rectangle has sides a and b). Your task is to appropriately implement the Shape trait for these objects along with corresponding struct methods marked as **TODO**.
-
-- **Calculator** Struct: Lastly, there's the **Calculator** struct, which contains two operands, x and y. When you create a Calculator instance, you'll perform mathematical operations on these operands. Your job is to implement these mathematical functions using the provided template. Additionally, it's essential to handle **underflow** and **overflow** correctly in your calculator, as these cases **are tested in the provided tests**.
-
-
-### Submission Process
-- Implement the necessary functions and logic in **main.rs**; they are marked as **TODO!**
-- Use the provided tests in **tests.rs** to validate your code.
-- Push your work.
-
-### Deadline
-The deadline for this task is **Wednesday, April 24th, at 23:59 UTC**. Note that we will not accept submissions after the deadline.
-
-### Evaluation
-We will evaluate your submission using the same test suite provided in this task. Therefore, the requirements for this task are to pass **100%** of the provided tests.
-
-### Setup
-For this Task you need to have [Rust Installed](https://www.rust-lang.org/tools/install). You don't need to worry about the installed version, as the specified Rust version inside rust-toolchain will handle that.
-
-### Commands
-
-1. To compile the project, run:
-```
-cargo build
-```
-
-2. To run the project and start the main function, use:
-```
-cargo run
-```
-
-3. To test your implementation, run:
-```
+bash
+Copy code
 cargo test
-```
+This command will compile the project and execute all the defined tests, ensuring that all implemented functionalities work as expected.
 
-If you encounter any questions or issues during the installation process or have any inquiries related to the task, please feel free to initiate a discussion on Discord within the Issues Forum.
+Examples
+The project includes examples demonstrating the usage of the implemented functionalities:
 
-### Hints and Useful Links
-[Primitive Type i64](https://doc.rust-lang.org/std/primitive.i64.html)
+calculator_example: Shows how to perform arithmetic operations using the Calculator struct.
+rectangle_example: Demonstrates the creation and modification of rectangles.
+circle_example: Demonstrates the creation and modification of circles.
+Usage
+To use this project in your Rust application, you can add it as a dependency in your Cargo.toml file:
 
-[Traits](https://doc.rust-lang.org/book/ch10-02-traits.html)
+toml
 
-[References and Borrowing](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html?highlight=borrow#references-and-borrowing)
+[dependencies]
+shapes_calculator = "0.1.0"
+Then, import the necessary components in your code and start using them:
 
-[Structs](https://doc.rust-lang.org/book/ch05-01-defining-structs.html)
+rust
+use shapes_calculator::{Calculator, Rectangle, Circle};
 
-[Options](https://doc.rust-lang.org/std/option/)
+fn main() {
+    // Example usage
+    let calculator = Calculator::new(&5, &3);
+    println!("Addition result: {}", calculator.addition().unwrap());
 
------
+    let rectangle = Rectangle::try_new(&10.0, &5.0).unwrap();
+    println!("Rectangle area: {}", rectangle.area());
 
-### Need help?
-If you have any questions feel free to reach out to us at [Discord](https://discord.gg/z3JVuZyFnp).
+    let circle = Circle::try_new(&7.0).unwrap();
+    println!("Circle circumference: {}", circle.circumference());
+}
+License
+This project is licensed under the MIT License - see the LICENSE file for details.

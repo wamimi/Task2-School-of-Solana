@@ -44,7 +44,7 @@ rust
 use shapes_calculator::{Calculator, Rectangle, Circle};
 
 fn main() {
-    // Example usage
+    // usage
     let calculator = Calculator::new(&5, &3);
     println!("Addition result: {}", calculator.addition().unwrap());
 
@@ -53,6 +53,3 @@ fn main() {
 
     let circle = Circle::try_new(&7.0).unwrap();
     println!("Circle circumference: {}", circle.circumference());
-}
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
